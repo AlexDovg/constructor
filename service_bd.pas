@@ -572,6 +572,7 @@ var
   SQLText : string;
   Query   : TIBQuery;
   Trans   : TIBTransaction;
+  j: integer;//test
 begin
   Query := nil;
   Trans := nil;
