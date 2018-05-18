@@ -5,12 +5,12 @@ unit geometry_editor;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, TreeFilterEdit, Forms, Controls,
+  Classes, SysUtils, FileUtil, TreeFilterEdit, OpenGLContext, Forms, Controls,
   Graphics, ExtCtrls, StdCtrls, Buttons, ComCtrls,
   Grids, service_bd, unit_classes, system_info, instance_class,
   db, IBQuery, IBDatabase, IBCustomDataSet,  Dialogs,
   DBGrids, DbCtrls, Menus, ActnList,Fillinstinfo,
-  Service,ExportImport,header,thread_process,windows;
+  Service,ExportImport,header,thread_process,windows, gl, glu, Types;
 
 
 type
@@ -35,6 +35,7 @@ type
     MIInsertpattern: TMenuItem;
     MIcreatepattern: TMenuItem;
     dlgOpen: TOpenDialog;
+    OpenGLControl1: TOpenGLControl;
     PopupMenu1: TPopupMenu;
     MenuEI: TPopupMenu;
     PopupMenu2: TPopupMenu;
@@ -110,6 +111,11 @@ type
     procedure miChangeSignClick(Sender: TObject);
     procedure MIcreatepatternClick(Sender: TObject);
     procedure MIInsertpatternClick(Sender: TObject);
+    procedure OpenGLControl1Click(Sender: TObject);
+    procedure OpenGLControl1MouseWheelDown(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure OpenGLControl1MouseWheelUp(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
     procedure PopupMenu2Popup(Sender: TObject);
   private
     procedure IncGridCol(number : Integer);
@@ -149,12 +155,20 @@ type
     procedure OnAccept(geometry : Pointer);             // Execute acception chain
     procedure OnDelete(geometry : Pointer);             // Execute removing chain
     procedure SendChanges();                            // Execute the query with changed instance
+    procedure circlepaint;
+    procedure quadpaint;
+    procedure sixpaint;
   end;
 
 var
   FormGeomedit: TFormGeomedit;
   current_geometry,pattern_geometry: TGeometry;
   nuclGrid : TSortList;
+  scx:real=1;
+  scy:real=1;
+
+
+
 
 implementation
 {$R *.lfm}
@@ -389,6 +403,12 @@ begin
   Refreshgeom(@current_geometry);
 end;
 
+procedure TFormGeomedit.OpenGLControl1Click(Sender: TObject);
+begin
+
+end;
+
+
 procedure TFormGeomedit.PopupMenu2Popup(Sender: TObject);
 begin
   if not (GeometryTree.Selected = nil) then
@@ -419,11 +439,29 @@ begin
 end;
 
 
+
+
+
+
+
+
 procedure TFormGeomedit.BitaccgeomClick(Sender: TObject);
 begin
+
   OnAccept(@current_geometry);
   FillTree;
+
+  glClearColor(1, 1, 1, 1.0);
+  glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT);
+  glLoadIdentity;
+  sixpaint; //шестиугольник
+  circlepaint; //для круга
+  quadpaint; //для квадрата
+  glEnd;
+  OpenGLControl1.SwapBuffers;
 end;
+
+
 
 procedure TFormGeomedit.btnAcceptClick(Sender: TObject);
 begin
@@ -1055,6 +1093,147 @@ begin
     end;
   end;
   end;
+
+
+
+//Далее Довгополый
+
+//Круг
+procedure TFormGeomedit.circlepaint;
+  var
+  a,b,m:extended;
+  x,y,r:extended;
+  i,j : Integer;
+  begin
+  x:=0;
+  y:=0;
+  a:=0;
+  b:=0;
+  m:=2*pi;
+//glLoadIdentity;
+begin
+  i:=0;      //Для первой фигуры,затем это будет порядковый номер прорисовки.
+  r:=current_geometry.faces[i].Dimension[i];
+      begin  //RTYPE для залито/не залито
+         if current_geometry.faces[i].RTYPE =1 then
+            glBegin(GL_LINE_STRIP)
+         else
+            glBegin(GL_POLYGON);
+      end;
+      while b<=m do
+      begin
+      glColor3d(0,1,0);
+      glVertex3f(x+r*cos(b),y+r*sin(b),0);
+      b:=b+0.01;
+      end;
+      glEnd;
+end;
+end;
+
+//Квадрат
+procedure TFormGeomedit.quadpaint;
+  var
+  r:extended;
+  i: Integer;
+begin
+
+i:=0;      //Для первой фигуры,затем это будет порядковый номер прорисовки.
+r:=current_geometry.faces[i].Dimension[i];
+     begin  //RTYPE для залито/не залито
+            if current_geometry.faces[i].RTYPE =1 then
+            glBegin(GL_LINE_STRIP)
+            else
+            glBegin(GL_POLYGON);
+     end;
+    glColor3f(1.0, 1.0, 0.0);          // yellow
+    glVertex2f (r*1, r*-1);
+    glColor3f(1.0, 0.0, 0.0); //red
+    glVertex2f (r*-1 , r*-1);
+    glColor3f(0.0, 1.0, 0.0);          // green
+    glVertex2f (r*-1,r*1);
+    glColor3f(0.0, 0.0, 1.0);         //  blue
+    glVertex2f (r*1, r*1);
+    glColor3f(1.0, 1.0, 0.0);          // yellow
+    glVertex2f (r*1, r*-1);
+  glEnd;
+end;
+
+//Шестиугольник
+procedure TFormGeomedit.sixpaint;
+var
+r:extended;
+i: Integer;
+begin
+
+i:=0;      //Для первой фигуры,затем это будет порядковый номер прорисовки.
+r:=current_geometry.faces[i].Dimension[i];
+   begin  //RTYPE для залито/не залито
+          if current_geometry.faces[i].RTYPE =1 then
+          glBegin(GL_LINE_STRIP)
+          else
+          glBegin(GL_POLYGON);
+    glColor3f(0.0, 0.0, 1.0);
+    glVertex2f(0.0, r*1);
+    glColor3f(0.0, 0.0, 1.0);
+    glVertex2f(r*1, -r*0.5);
+    glColor3f(0.0, 0.0, 1.0);
+    glVertex2f(r*1, -r*0.5);
+    glColor3f(0.0, 0.0, 1.0);
+    glVertex2f(0.0, -r*1);
+    glColor3f(0.0, 0.0, 1.0);
+    glVertex2f(-r*1, -r*0.5);
+    glColor3f(0.0, 0.0, 1.0);
+    glvertex2f(-r*1, r*0.5);
+    glColor3f(0.0, 0.0, 1.0);
+    glVertex2f(0.0, r*1);
+    glColor3f(0.0, 0.0, 1.0);
+    glEnd;
+    end;
+end;
+
+
+//Scrolling  колесиком мышки вниз
+procedure TFormGeomedit.OpenGLControl1MouseWheelDown(Sender: TObject;
+
+  Shift: TShiftState; MousePos: TPoint; var Handled: Boolean);
+begin
+     glClearColor(1, 1, 1, 1.0);
+     glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT);
+     begin
+          if (scx>0.11) and (scy>0.11) then
+          begin
+          scx:=scx-0.1;
+          scy:=scy-0.1
+          end;
+     end;
+     glLoadIdentity;
+     glscalef(scx,scy,0);
+     circlepaint;
+     quadpaint;
+     OpenGLControl1.SwapBuffers;
+     glEnd;
+end;
+
+//Scrolling  колесиком мышки верх
+procedure TFormGeomedit.OpenGLControl1MouseWheelUp(Sender: TObject;
+  Shift: TShiftState; MousePos: TPoint; var Handled: Boolean);
+begin
+     glClearColor(1, 1, 1, 1.0);
+     glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT);
+    begin
+         if (scx<1) and (scy<1) then
+         begin
+         scx:=scx+0.1;
+         scy:=scy+0.1
+         end;
+    end;
+    glLoadIdentity;
+    glscalef(scx,scy,0);
+    quadpaint;
+    circlepaint;
+    OpenGLControl1.SwapBuffers;
+    glEnd;
+end;
 
 
 end.
