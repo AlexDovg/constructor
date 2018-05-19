@@ -2,14 +2,14 @@ object FormMatedit: TFormMatedit
   Left = 703
   Height = 583
   Top = 329
-  Width = 815
+  Width = 807
   Caption = 'Editing material'
   ClientHeight = 583
-  ClientWidth = 815
+  ClientWidth = 807
   Color = clWhite
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '1.4.2.0'
+  LCLVersion = '1.8.2.0'
   object Paneltree: TPanel
     Left = 0
     Height = 583
@@ -76,7 +76,6 @@ object FormMatedit: TFormMatedit
       Top = 66
       Width = 158
       Align = alClient
-      DefaultItemHeight = 18
       ExpandSignType = tvestPlusMinus
       Images = ImageList1
       PopupMenu = PopupMenu2
@@ -102,10 +101,10 @@ object FormMatedit: TFormMatedit
     Left = 168
     Height = 583
     Top = 0
-    Width = 318
+    Width = 310
     Align = alClient
     ClientHeight = 583
-    ClientWidth = 318
+    ClientWidth = 310
     PopupMenu = PopupMenu1
     TabOrder = 1
     object Label1: TLabel
@@ -439,7 +438,7 @@ object FormMatedit: TFormMatedit
     MinSize = 35
   end
   object Panelbd: TPanel
-    Left = 490
+    Left = 482
     Height = 583
     Top = 0
     Width = 325
@@ -573,7 +572,7 @@ object FormMatedit: TFormMatedit
     end
   end
   object Splitter2: TSplitter
-    Left = 486
+    Left = 478
     Height = 583
     Top = 0
     Width = 4
@@ -878,12 +877,15 @@ object FormMatedit: TFormMatedit
     }
   end
   object QueryNucl: TIBQuery
+    AllowAutoActivateTransaction = True
     Database = DM.rDatabase
     Transaction = TransactionNucl
     BufferChunks = 1000
     CachedUpdates = False
+    EnableStatistics = False
     GenerateParamNames = False
     GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
     SQL.Strings = (
       'Select A.ID, A.MASS, A.NAME, A.DESCRIPTION From NUCLID A'
     )

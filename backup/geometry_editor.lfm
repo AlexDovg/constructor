@@ -1,11 +1,11 @@
 object FormGeomedit: TFormGeomedit
-  Left = 744
+  Left = 679
   Height = 694
-  Top = 259
-  Width = 872
+  Top = 431
+  Width = 849
   Caption = 'Editing geometry'
   ClientHeight = 694
-  ClientWidth = 872
+  ClientWidth = 849
   Color = clWhite
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -35,35 +35,35 @@ object FormGeomedit: TFormGeomedit
         OnClick = BtnAddClick
       end
       object Btndel: TToolButton
-        Left = 24
+        Left = 30
         Top = 2
         Caption = 'Btndel'
         ImageIndex = 0
         OnClick = BtndelClick
       end
       object Btnmod: TToolButton
-        Left = 47
+        Left = 59
         Top = 2
         Caption = 'Btnmod'
         ImageIndex = 3
         OnClick = BtnmodClick
       end
       object Btnacc: TToolButton
-        Left = 70
+        Left = 88
         Top = 2
         Caption = 'Btnacc'
         ImageIndex = 8
       end
       object BtnSave: TToolButton
-        Left = 93
+        Left = 117
         Top = 2
         Caption = 'BtnSave'
         ImageIndex = 6
         OnClick = BtnSaveClick
       end
       object Btnload: TToolButton
-        Left = 116
-        Top = 2
+        Left = 1
+        Top = 30
         Caption = 'Btnload'
         DropdownMenu = MenuEI
         ImageIndex = 1
@@ -101,10 +101,10 @@ object FormGeomedit: TFormGeomedit
     Left = 168
     Height = 694
     Top = 0
-    Width = 704
+    Width = 681
     Align = alClient
     ClientHeight = 694
-    ClientWidth = 704
+    ClientWidth = 681
     PopupMenu = PopupMenu1
     TabOrder = 1
     object Label1: TLabel

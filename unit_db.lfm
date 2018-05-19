@@ -1,13 +1,13 @@
 object DBmod: TDBmod
-  Left = 846
+  Left = 448
   Height = 490
-  Top = 345
+  Top = 440
   Width = 679
   Caption = 'DBmod'
   ClientHeight = 490
   ClientWidth = 679
   OnCreate = FormCreate
-  LCLVersion = '1.4.2.0'
+  LCLVersion = '1.8.2.0'
   Visible = True
   object Button1: TButton
     Left = 8
@@ -29,9 +29,9 @@ object DBmod: TDBmod
   end
   object Button3: TButton
     Left = 8
-    Height = 30
+    Height = 25
     Top = 160
-    Width = 164
+    Width = 134
     AutoSize = True
     Caption = 'Запрос добавление'
     OnClick = Button3Click
@@ -66,7 +66,7 @@ object DBmod: TDBmod
   end
   object Edit1: TEdit
     Left = 208
-    Height = 28
+    Height = 23
     Top = 18
     Width = 80
     TabOrder = 6
