@@ -7,10 +7,9 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, unit_DB, ibexpress, lazcontrols, datetimectrls, lazopenglcontext,
-  system_info, Header, thread_process, DataModule, Qtable_class, Instance_class,
-  unitqueue, Material_editor, Service, material_table, saver, ExportImport,
-  Fillinstinfo;
+  Forms, unit_DB, ibexpress, lazcontrols, datetimectrls, system_info, Header,
+  thread_process, DataModule, Qtable_class, Instance_class, unitqueue,
+  Material_editor, Service, material_table, saver, ExportImport, Fillinstinfo;
 
 {$R *.res}
 

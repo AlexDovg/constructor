@@ -4,11 +4,11 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="30">
+    <Units Count="29">
       <Unit0>
         <Filename Value="project_new.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="22"/>
+        <EditorIndex Value="21"/>
         <CursorPos Y="27"/>
         <UsageCount Value="361"/>
         <Loaded Value="True"/>
@@ -34,8 +34,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="520"/>
-        <CursorPos Y="538"/>
+        <TopLine Value="532"/>
+        <CursorPos Y="540"/>
         <UsageCount Value="361"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -43,7 +43,7 @@
       <Unit3>
         <Filename Value="unit_classes.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="15"/>
+        <EditorIndex Value="14"/>
         <TopLine Value="59"/>
         <CursorPos X="18" Y="81"/>
         <ExtraEditorCount Value="2"/>
@@ -65,7 +65,7 @@
       <Unit4>
         <Filename Value="system_info.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="21"/>
+        <EditorIndex Value="20"/>
         <TopLine Value="78"/>
         <CursorPos Y="108"/>
         <UsageCount Value="361"/>
@@ -74,7 +74,7 @@
       <Unit5>
         <Filename Value="thread_process.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="12"/>
+        <EditorIndex Value="11"/>
         <TopLine Value="176"/>
         <CursorPos Y="210"/>
         <UsageCount Value="305"/>
@@ -97,7 +97,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Qtable_class"/>
         <EditorIndex Value="8"/>
-        <TopLine Value="388"/>
+        <TopLine Value="386"/>
         <CursorPos X="16" Y="50"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
@@ -112,7 +112,7 @@
         <CursorPos X="82" Y="581"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
-          <EditorIndex Value="13"/>
+          <EditorIndex Value="12"/>
           <TopLine Value="30"/>
           <CursorPos X="12" Y="39"/>
         </ExtraEditor1>
@@ -123,7 +123,7 @@
         <Filename Value="instance_class.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Instance_class"/>
-        <EditorIndex Value="19"/>
+        <EditorIndex Value="18"/>
         <CursorPos X="6"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
@@ -134,7 +134,7 @@
         <ComponentName Value="FormQueue"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="20"/>
+        <EditorIndex Value="19"/>
         <TopLine Value="159"/>
         <CursorPos X="36" Y="48"/>
         <UsageCount Value="221"/>
@@ -148,11 +148,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Material_editor"/>
-        <EditorIndex Value="18"/>
-        <TopLine Value="918"/>
-        <CursorPos X="40" Y="840"/>
+        <EditorIndex Value="17"/>
+        <TopLine Value="1086"/>
+        <CursorPos X="37" Y="1093"/>
         <UsageCount Value="218"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="service.pas"/>
@@ -170,7 +171,7 @@
         <ComponentName Value="Formmattable"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="23"/>
+        <EditorIndex Value="22"/>
         <CursorPos X="3" Y="17"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
@@ -181,7 +182,7 @@
         <ComponentName Value="iniform"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="25"/>
+        <EditorIndex Value="24"/>
         <TopLine Value="12"/>
         <CursorPos X="7" Y="49"/>
         <UsageCount Value="211"/>
@@ -194,7 +195,7 @@
         <ComponentName Value="Formstater"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="24"/>
+        <EditorIndex Value="23"/>
         <TopLine Value="67"/>
         <CursorPos Y="86"/>
         <UsageCount Value="238"/>
@@ -204,7 +205,7 @@
         <Filename Value="exportimport.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ExportImport"/>
-        <EditorIndex Value="17"/>
+        <EditorIndex Value="16"/>
         <CursorPos X="25" Y="68"/>
         <UsageCount Value="219"/>
         <Loaded Value="True"/>
@@ -256,9 +257,9 @@
         <ComponentName Value="FormGeomedit"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="9"/>
-        <TopLine Value="137"/>
-        <CursorPos X="41" Y="149"/>
+        <CursorPos X="34" Y="10"/>
         <UsageCount Value="344"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -267,7 +268,7 @@
         <Filename Value="Source\formgeomtable.inc"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="31"/>
+        <TopLine Value="23"/>
         <CursorPos Y="52"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
@@ -299,7 +300,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Subassembly_editor"/>
-        <EditorIndex Value="16"/>
+        <EditorIndex Value="15"/>
         <TopLine Value="1684"/>
         <CursorPos X="19" Y="1684"/>
         <UsageCount Value="265"/>
@@ -310,7 +311,7 @@
         <Filename Value="fillinstinfo.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Fillinstinfo"/>
-        <EditorIndex Value="14"/>
+        <EditorIndex Value="13"/>
         <TopLine Value="228"/>
         <CursorPos X="53" Y="256"/>
         <ExtraEditorCount Value="1"/>
@@ -338,147 +339,138 @@
         <UsageCount Value="11"/>
       </Unit27>
       <Unit28>
-        <Filename Value="C:\Users\Александр\Downloads\ibx\runtime\nongui\IBDatabase.pas"/>
+        <Filename Value="C:\Users\Александр\Downloads\ibx\fbintf\IB.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1111"/>
-        <CursorPos Y="1132"/>
+        <TopLine Value="1216"/>
+        <CursorPos X="55" Y="1219"/>
         <UsageCount Value="10"/>
       </Unit28>
-      <Unit29>
-        <Filename Value="C:\Users\Александр\Downloads\ibx\fbintf\IB.pas"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="11"/>
-        <TopLine Value="1216"/>
-        <CursorPos Y="1249"/>
-        <UsageCount Value="10"/>
-        <Loaded Value="True"/>
-      </Unit29>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="Header.pas"/>
-        <Caret Line="538" TopLine="520"/>
+        <Filename Value="Source\formmattable.inc"/>
+        <Caret Line="18"/>
       </Position1>
       <Position2>
         <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="65" TopLine="39"/>
+        <Caret Line="60" TopLine="39"/>
       </Position2>
       <Position3>
         <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="60" TopLine="39"/>
+        <Caret Line="61" TopLine="39"/>
       </Position3>
       <Position4>
         <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="61" TopLine="39"/>
+        <Caret Line="64" TopLine="39"/>
       </Position4>
       <Position5>
-        <Filename Value="Header.pas"/>
-        <Caret Line="291" TopLine="272"/>
+        <Filename Value="Source\formgeomtable.inc"/>
+        <Caret Line="7"/>
       </Position5>
       <Position6>
-        <Filename Value="Header.pas"/>
-        <Caret Line="296" TopLine="272"/>
+        <Filename Value="Source\formgeomtable.inc"/>
+        <Caret Line="52" TopLine="31"/>
       </Position6>
       <Position7>
-        <Filename Value="Header.pas"/>
-        <Caret Line="538" TopLine="520"/>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="212" TopLine="194"/>
       </Position7>
       <Position8>
         <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="18"/>
+        <Caret Line="64" TopLine="39"/>
       </Position8>
       <Position9>
-        <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="60" TopLine="39"/>
+        <Filename Value="geometry_editor.pas"/>
+        <Caret Line="214" Column="23" TopLine="139"/>
       </Position9>
       <Position10>
-        <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="50" Column="81" TopLine="39"/>
+        <Filename Value="unit_classes.pas"/>
+        <Caret Line="139" Column="3" TopLine="139"/>
       </Position10>
       <Position11>
-        <Filename Value="Header.pas"/>
-        <Caret Line="296" TopLine="278"/>
+        <Filename Value="geometry_editor.pas"/>
+        <Caret Line="467" TopLine="452"/>
       </Position11>
       <Position12>
-        <Filename Value="Header.pas"/>
-        <Caret Line="538" TopLine="520"/>
+        <Filename Value="geometry_editor.pas"/>
+        <Caret Line="466" TopLine="452"/>
       </Position12>
       <Position13>
-        <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="18"/>
+        <Filename Value="geometry_editor.pas"/>
+        <Caret Line="125" Column="15" TopLine="111"/>
       </Position13>
       <Position14>
-        <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="60" TopLine="39"/>
+        <Filename Value="geometry_editor.pas"/>
+        <Caret Line="467" Column="10" TopLine="464"/>
       </Position14>
       <Position15>
-        <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="61" TopLine="39"/>
+        <Filename Value="geometry_editor.pas"/>
+        <Caret Line="618" TopLine="600"/>
       </Position15>
       <Position16>
-        <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="64" TopLine="39"/>
+        <Filename Value="geometry_editor.pas"/>
+        <Caret Line="467" TopLine="449"/>
       </Position16>
       <Position17>
-        <Filename Value="Source\formgeomtable.inc"/>
-        <Caret Line="7"/>
+        <Filename Value="geometry_editor.pas"/>
+        <Caret Line="29" Column="24"/>
       </Position17>
       <Position18>
         <Filename Value="Source\formgeomtable.inc"/>
-        <Caret Line="52" TopLine="31"/>
+        <Caret Line="52" TopLine="23"/>
       </Position18>
       <Position19>
-        <Filename Value="datamodule.pas"/>
-        <Caret Line="212" TopLine="194"/>
+        <Filename Value="Header.pas"/>
+        <Caret Line="540" TopLine="507"/>
       </Position19>
       <Position20>
-        <Filename Value="Source\formmattable.inc"/>
-        <Caret Line="64" TopLine="39"/>
+        <Filename Value="Header.pas"/>
+        <Caret Line="147" Column="28" TopLine="126"/>
       </Position20>
       <Position21>
-        <Filename Value="geometry_editor.pas"/>
-        <Caret Line="214" Column="23" TopLine="139"/>
+        <Filename Value="Header.pas"/>
+        <Caret Line="318" Column="40" TopLine="281"/>
       </Position21>
       <Position22>
-        <Filename Value="unit_classes.pas"/>
-        <Caret Line="139" Column="3" TopLine="139"/>
+        <Filename Value="Header.pas"/>
+        <Caret Line="540" Column="26" TopLine="503"/>
       </Position22>
       <Position23>
-        <Filename Value="geometry_editor.pas"/>
-        <Caret Line="467" TopLine="452"/>
+        <Filename Value="Header.pas"/>
+        <Caret Line="551" TopLine="534"/>
       </Position23>
       <Position24>
-        <Filename Value="geometry_editor.pas"/>
-        <Caret Line="466" TopLine="452"/>
+        <Filename Value="Header.pas"/>
+        <Caret Line="603" TopLine="581"/>
       </Position24>
       <Position25>
-        <Filename Value="geometry_editor.pas"/>
-        <Caret Line="125" Column="15" TopLine="111"/>
+        <Filename Value="Header.pas"/>
+        <Caret Line="549" TopLine="527"/>
       </Position25>
       <Position26>
-        <Filename Value="geometry_editor.pas"/>
-        <Caret Line="467" Column="10" TopLine="464"/>
+        <Filename Value="Header.pas"/>
+        <Caret Line="577" TopLine="539"/>
       </Position26>
       <Position27>
-        <Filename Value="geometry_editor.pas"/>
-        <Caret Line="618" TopLine="600"/>
+        <Filename Value="Header.pas"/>
+        <Caret Line="571" TopLine="539"/>
       </Position27>
       <Position28>
-        <Filename Value="geometry_editor.pas"/>
-        <Caret Line="467" TopLine="449"/>
+        <Filename Value="Header.pas"/>
+        <Caret Line="572" TopLine="539"/>
       </Position28>
       <Position29>
         <Filename Value="geometry_editor.pas"/>
-        <Caret Line="149" Column="41" TopLine="137"/>
+        <Caret Line="762" Column="21" TopLine="745"/>
       </Position29>
       <Position30>
-        <Filename Value="Source\qtables.inc"/>
-        <Caret Line="258" Column="6" TopLine="255"/>
+        <Filename Value="geometry_editor.pas"/>
+        <Caret Line="8" Column="55"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="15">
+    <BreakPoints Count="22">
       <Item1>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
@@ -584,6 +576,55 @@
         <Source Value="geometry_editor.pas"/>
         <Line Value="621"/>
       </Item15>
+      <Item16>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="Header.pas"/>
+        <Line Value="540"/>
+      </Item16>
+      <Item17>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="Header.pas"/>
+        <Line Value="603"/>
+      </Item17>
+      <Item18>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="Header.pas"/>
+        <Line Value="549"/>
+      </Item18>
+      <Item19>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="Header.pas"/>
+        <Line Value="551"/>
+      </Item19>
+      <Item20>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="Header.pas"/>
+        <Line Value="571"/>
+      </Item20>
+      <Item21>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="Header.pas"/>
+        <Line Value="572"/>
+      </Item21>
+      <Item22>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="Header.pas"/>
+        <Line Value="577"/>
+      </Item22>
     </BreakPoints>
     <Watches Count="3">
       <Item1>
