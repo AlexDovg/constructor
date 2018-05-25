@@ -1,11 +1,11 @@
 object FormGeomedit: TFormGeomedit
-  Left = 744
+  Left = 489
   Height = 694
-  Top = 259
-  Width = 872
+  Top = 144
+  Width = 849
   Caption = 'Editing geometry'
   ClientHeight = 694
-  ClientWidth = 872
+  ClientWidth = 849
   Color = clWhite
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -101,10 +101,10 @@ object FormGeomedit: TFormGeomedit
     Left = 168
     Height = 694
     Top = 0
-    Width = 704
+    Width = 681
     Align = alClient
     ClientHeight = 694
-    ClientWidth = 704
+    ClientWidth = 681
     PopupMenu = PopupMenu1
     TabOrder = 1
     object Label1: TLabel
@@ -737,7 +737,7 @@ object FormGeomedit: TFormGeomedit
     top = 384
   end
   object TransactionSurf: TIBTransaction
-    Active = False
+    Active = True
     DefaultDatabase = DM.rDatabase
     Params.Strings = (
       'read_committed'

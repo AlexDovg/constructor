@@ -1,7 +1,7 @@
 object FormMatedit: TFormMatedit
-  Left = 703
+  Left = 565
   Height = 583
-  Top = 329
+  Top = 132
   Width = 815
   Caption = 'Editing material'
   ClientHeight = 583
@@ -9,7 +9,7 @@ object FormMatedit: TFormMatedit
   Color = clWhite
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '1.4.2.0'
+  LCLVersion = '1.8.2.0'
   object Paneltree: TPanel
     Left = 0
     Height = 583
@@ -76,7 +76,6 @@ object FormMatedit: TFormMatedit
       Top = 66
       Width = 158
       Align = alClient
-      DefaultItemHeight = 18
       ExpandSignType = tvestPlusMinus
       Images = ImageList1
       PopupMenu = PopupMenu2
@@ -878,12 +877,16 @@ object FormMatedit: TFormMatedit
     }
   end
   object QueryNucl: TIBQuery
+    AllowAutoActivateTransaction = True
     Database = DM.rDatabase
     Transaction = TransactionNucl
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
+    EnableStatistics = False
     GenerateParamNames = False
     GeneratorField.ApplyOnEvent = gaeOnNewRecord
+    MasterDetailDelay = 0
     SQL.Strings = (
       'Select A.ID, A.MASS, A.NAME, A.DESCRIPTION From NUCLID A'
     )
@@ -934,7 +937,7 @@ object FormMatedit: TFormMatedit
     top = 321
   end
   object TransactionNucl: TIBTransaction
-    Active = False
+    Active = True
     DefaultDatabase = DM.rDatabase
     Params.Strings = (
       'read_committed'

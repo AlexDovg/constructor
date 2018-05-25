@@ -445,23 +445,39 @@ end;
 
 
 
-procedure TFormGeomedit.BitaccgeomClick(Sender: TObject);
-begin
 
+
+procedure TFormGeomedit.BitaccgeomClick(Sender: TObject);
+  var
+  i: Integer;
+  begin
+begin
+ i:=0;      //Для первой фигуры,затем это будет порядковый номер прорисовки.
   OnAccept(@current_geometry);
   FillTree;
 
   glClearColor(1, 1, 1, 1.0);
   glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT);
   glLoadIdentity;
-  sixpaint; //шестиугольник
-  circlepaint; //для круга
-  quadpaint; //для квадрата
+
+ //  for i:=0 to current_geometry.numsurf-1 do //  length-1 do
+   begin
+   //Name -узнаем что за фигура
+   if current_geometry.faces[i].Name = 'Circle' then
+   circlepaint; //для кругa
+
+   if current_geometry.faces[i].Name = 'Square' then
+   quadpaint; //для квадрата
+
+   if current_geometry.faces[i].Name = 'Hexagonal' then
+   sixpaint; //шестиугольник
+   end;
   glEnd;
   OpenGLControl1.SwapBuffers;
 end;
 
 
+End;
 
 procedure TFormGeomedit.btnAcceptClick(Sender: TObject);
 begin

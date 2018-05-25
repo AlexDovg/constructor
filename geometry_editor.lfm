@@ -1,13 +1,12 @@
 object FormGeomedit: TFormGeomedit
-  Left = 281
+  Left = 489
   Height = 694
-  Top = 236
+  Top = 144
   Width = 849
   Caption = 'Editing geometry'
   ClientHeight = 694
   ClientWidth = 849
   Color = clWhite
-  DesignTimePPI = 120
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   LCLVersion = '1.8.2.0'
@@ -36,35 +35,35 @@ object FormGeomedit: TFormGeomedit
         OnClick = BtnAddClick
       end
       object Btndel: TToolButton
-        Left = 30
+        Left = 24
         Top = 2
         Caption = 'Btndel'
         ImageIndex = 0
         OnClick = BtndelClick
       end
       object Btnmod: TToolButton
-        Left = 59
+        Left = 47
         Top = 2
         Caption = 'Btnmod'
         ImageIndex = 3
         OnClick = BtnmodClick
       end
       object Btnacc: TToolButton
-        Left = 88
+        Left = 70
         Top = 2
         Caption = 'Btnacc'
         ImageIndex = 8
       end
       object BtnSave: TToolButton
-        Left = 117
+        Left = 93
         Top = 2
         Caption = 'BtnSave'
         ImageIndex = 6
         OnClick = BtnSaveClick
       end
       object Btnload: TToolButton
-        Left = 1
-        Top = 30
+        Left = 116
+        Top = 2
         Caption = 'Btnload'
         DropdownMenu = MenuEI
         ImageIndex = 1
@@ -73,8 +72,8 @@ object FormGeomedit: TFormGeomedit
     end
     object GeometryTree: TTreeView
       Left = 1
-      Height = 622
-      Top = 71
+      Height = 627
+      Top = 66
       Width = 158
       Align = alClient
       ExpandSignType = tvestPlusMinus
@@ -87,7 +86,7 @@ object FormGeomedit: TFormGeomedit
     end
     object TreeFilterEdit2: TTreeFilterEdit
       Left = 1
-      Height = 28
+      Height = 23
       Top = 43
       Width = 158
       ButtonWidth = 23
@@ -145,7 +144,7 @@ object FormGeomedit: TFormGeomedit
     end
     object TreeFilterEdit1: TTreeFilterEdit
       Left = -152
-      Height = 28
+      Height = 23
       Top = 31
       Width = 103
       ButtonWidth = 23
@@ -676,6 +675,7 @@ object FormGeomedit: TFormGeomedit
     AllowAutoActivateTransaction = True
     Database = DM.rDatabase
     Transaction = TransactionSurf
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     EnableStatistics = False
@@ -738,7 +738,7 @@ object FormGeomedit: TFormGeomedit
     top = 384
   end
   object TransactionSurf: TIBTransaction
-    Active = False
+    Active = True
     DefaultDatabase = DM.rDatabase
     Params.Strings = (
       'read_committed'
