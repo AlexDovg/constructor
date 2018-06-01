@@ -1,7 +1,7 @@
 object FormGeomedit: TFormGeomedit
-  Left = 489
+  Left = 994
   Height = 694
-  Top = 144
+  Top = 132
   Width = 849
   Caption = 'Editing geometry'
   ClientHeight = 694
@@ -678,10 +678,8 @@ object FormGeomedit: TFormGeomedit
     Active = True
     BufferChunks = 1000
     CachedUpdates = False
-    EnableStatistics = False
     GenerateParamNames = False
     GeneratorField.ApplyOnEvent = gaeOnNewRecord
-    MasterDetailDelay = 0
     SQL.Strings = (
       'Select A.ID, A.NAME, A.NDIM, A.DESCRIPTION From GEOMETRYSURF A'
     )

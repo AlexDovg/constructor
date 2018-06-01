@@ -155,9 +155,11 @@ type
     procedure OnAccept(geometry : Pointer);             // Execute acception chain
     procedure OnDelete(geometry : Pointer);             // Execute removing chain
     procedure SendChanges();                            // Execute the query with changed instance
-    procedure circlepaint;
-    procedure quadpaint;
-    procedure sixpaint;
+    procedure circlepaint(CurNum:integer;const norm:real=1.0);
+    procedure quadpaint(CurNum:integer;const norm:real=1.0);
+    procedure quadpaint1(r:extended);
+    procedure sixpaint(CurNum:integer;const norm:real=1.0);
+    procedure sixpaint1(r:extended);
   end;
 
 var
@@ -166,7 +168,8 @@ var
   nuclGrid : TSortList;
   scx:real=1;
   scy:real=1;
-
+  CurNum:integer=0;
+  km:real=1;
 
 
 
@@ -449,30 +452,50 @@ end;
 
 procedure TFormGeomedit.BitaccgeomClick(Sender: TObject);
   var
-  i: Integer;
+  CurNum: Integer;
+  //для нахождения самого большоего элемента
+        i:byte;
+        max_r:extended;
+        temp: real;
+        max_index:byte;
   begin
 begin
- i:=0;      //Для первой фигуры,затем это будет порядковый номер прорисовки.
   OnAccept(@current_geometry);
   FillTree;
-
   glClearColor(1, 1, 1, 1.0);
   glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT);
   glLoadIdentity;
+       //для 'вписывания' объекта в экран opengl
+        max_r:=0;
+        max_index:=0;
+         for i:=0 to current_geometry.numsurf-1 do
+           begin
+                temp:=current_geometry.faces[i].Dimension[0];
+                case current_geometry.faces[i].Name of
+                    'Hexagonal': temp:=temp*2/sqrt(3);
+                end;
 
- //  for i:=0 to current_geometry.numsurf-1 do //  length-1 do
+                if temp > max_r then
+
+                   begin
+                      max_index:=i;
+
+                      max_r:=temp;
+
+                   end;
+           end;
+   for CurNum:=0 to current_geometry.numsurf-1 do
    begin
-   //Name -узнаем что за фигура
-   if current_geometry.faces[i].Name = 'Circle' then
-   circlepaint; //для кругa
+        //Name -узнаем что за фигура
+        if current_geometry.faces[CurNum].Name = 'Circle' then
+        circlepaint(CurNum,max_r); //для кругa
 
-   if current_geometry.faces[i].Name = 'Square' then
-   quadpaint; //для квадрата
+        if current_geometry.faces[CurNum].Name = 'Square' then
+        quadpaint(CurNum,max_r); //для квадрата
 
-   if current_geometry.faces[i].Name = 'Hexagonal' then
-   sixpaint; //шестиугольник
+        if current_geometry.faces[CurNum].Name = 'Hexagonal' then
+        sixpaint(CurNum,max_r); //шестиугольник
    end;
-  glEnd;
   OpenGLControl1.SwapBuffers;
 end;
 
@@ -1115,140 +1138,248 @@ begin
 //Далее Довгополый
 
 //Круг
-procedure TFormGeomedit.circlepaint;
+procedure TFormGeomedit.circlepaint(CurNum:integer;const norm:real);
   var
   a,b,m:extended;
   x,y,r:extended;
-  i,j : Integer;
+  j : Integer;
   begin
   x:=0;
   y:=0;
   a:=0;
   b:=0;
   m:=2*pi;
-//glLoadIdentity;
 begin
-  i:=0;      //Для первой фигуры,затем это будет порядковый номер прорисовки.
-  r:=current_geometry.faces[i].Dimension[i];
+  r:=current_geometry.faces[CurNum].Dimension[0]/norm;
       begin  //RTYPE для залито/не залито
-         if current_geometry.faces[i].RTYPE =1 then
-            glBegin(GL_LINE_STRIP)
-         else
-            glBegin(GL_POLYGON);
-      end;
-      while b<=m do
-      begin
-      glColor3d(0,1,0);
-      glVertex3f(x+r*cos(b),y+r*sin(b),0);
-      b:=b+0.01;
-      end;
-      glEnd;
+         if current_geometry.faces[CurNum].RTYPE =1 then
+                begin
+                    glbegin(GL_POLYGON);
+                    glColor3f(1.0, 1.0, 1.0);          // white
+                        while a<=m do
+                        begin
+                        glVertex3f(x+r*cos(a),y+r*sin(a),0);
+                        a:=a+0.01;
+                        end;
+                    glEnd;
+
+                    glBegin(GL_LINE_STRIP);
+                    glColor3d(0,1,0);
+                        while b<=m do
+                        begin
+                        glVertex3f(x+r*cos(b),y+r*sin(b),0);
+                        b:=b+0.01;
+                        end;
+                    glEnd;
+               end
+            else
+               begin
+                    glBegin(GL_POLYGON);
+                        while b<=m do
+                        begin
+                        glColor3d(0,1,0);
+                        glVertex3f(x+r*cos(b),y+r*sin(b),0);
+                        b:=b+0.01;
+                        end;
+                    glEnd;
+               end;
 end;
 end;
+end;
+
 
 //Квадрат
-procedure TFormGeomedit.quadpaint;
+procedure TFormGeomedit.quadpaint(CurNum:integer;const norm:real);
   var
   r:extended;
-  i: Integer;
 begin
-
-i:=0;      //Для первой фигуры,затем это будет порядковый номер прорисовки.
-r:=current_geometry.faces[i].Dimension[i];
+r:=current_geometry.faces[CurNum].Dimension[0]/norm;
      begin  //RTYPE для залито/не залито
-            if current_geometry.faces[i].RTYPE =1 then
-            glBegin(GL_LINE_STRIP)
+            if current_geometry.faces[CurNum].RTYPE =1 then
+               begin
+                    glbegin(GL_POLYGON);
+                    glColor3f(1.0, 1.0, 1.0);          // white
+                    quadpaint1(r);
+                    glEnd;
+
+                    glBegin(GL_LINE_STRIP);
+                    glColor3f(1.0, 1.0, 0.0);          // yellow
+                    quadpaint1(r);
+                    glEnd;
+               end
             else
-            glBegin(GL_POLYGON);
-     end;
-    glColor3f(1.0, 1.0, 0.0);          // yellow
-    glVertex2f (r*1, r*-1);
-    glColor3f(1.0, 0.0, 0.0); //red
-    glVertex2f (r*-1 , r*-1);
-    glColor3f(0.0, 1.0, 0.0);          // green
-    glVertex2f (r*-1,r*1);
-    glColor3f(0.0, 0.0, 1.0);         //  blue
-    glVertex2f (r*1, r*1);
-    glColor3f(1.0, 1.0, 0.0);          // yellow
-    glVertex2f (r*1, r*-1);
-  glEnd;
+               begin
+                    glBegin(GL_POLYGON);
+                    glColor3f(1.0, 1.0, 0.0);          // yellow
+                    quadpaint1(r);
+                    glEnd;
+               end;
+end;
+end;
+procedure TFormGeomedit.quadpaint1(r:extended); //Вершины квадрата
+begin
+     glVertex2f (r*1, r*-1);
+     glVertex2f (r*-1 , r*-1);
+     glVertex2f (r*-1,r*1);
+     glVertex2f (r*1, r*1);
+     glVertex2f (r*1, r*-1);
 end;
 
+
 //Шестиугольник
-procedure TFormGeomedit.sixpaint;
+procedure TFormGeomedit.sixpaint(CurNum:integer;const norm:real);
 var
 r:extended;
-i: Integer;
 begin
-
-i:=0;      //Для первой фигуры,затем это будет порядковый номер прорисовки.
-r:=current_geometry.faces[i].Dimension[i];
+r:=current_geometry.faces[CurNum].Dimension[0]/norm;
    begin  //RTYPE для залито/не залито
-          if current_geometry.faces[i].RTYPE =1 then
-          glBegin(GL_LINE_STRIP)
+          if current_geometry.faces[CurNum].RTYPE =1 then
+             begin
+                  glbegin(GL_POLYGON);
+                  glColor3f(1.0, 1.0, 1.0);          // white
+                  sixpaint1(r);
+                  glEnd;
+
+                  glBegin(GL_LINE_STRIP);
+                  glColor3f(0.0, 0.0, 1.0);          // blue
+                  sixpaint1(r);
+                  glEnd;
+             end
           else
-          glBegin(GL_POLYGON);
-    glColor3f(0.0, 0.0, 1.0);
-    glVertex2f(0.0, r*1);
-    glColor3f(0.0, 0.0, 1.0);
-    glVertex2f(r*1, -r*0.5);
-    glColor3f(0.0, 0.0, 1.0);
-    glVertex2f(r*1, -r*0.5);
-    glColor3f(0.0, 0.0, 1.0);
-    glVertex2f(0.0, -r*1);
-    glColor3f(0.0, 0.0, 1.0);
-    glVertex2f(-r*1, -r*0.5);
-    glColor3f(0.0, 0.0, 1.0);
-    glvertex2f(-r*1, r*0.5);
-    glColor3f(0.0, 0.0, 1.0);
-    glVertex2f(0.0, r*1);
-    glColor3f(0.0, 0.0, 1.0);
-    glEnd;
+             begin
+                  glBegin(GL_POLYGON);
+                  glColor3f(0.0, 0.0, 1.0);          //blue
+                  sixpaint1(r);
+                  glEnd;
+             end;
     end;
+end;
+procedure TFormGeomedit.sixpaint1(r:extended); //Вершины шестиугольника
+begin
+   glVertex2f(r/sqrt(3), r);
+   glVertex2f(2*r/sqrt(3), 0);
+   glVertex2f(r/sqrt(3), -r);
+   glVertex2f(-r/sqrt(3), -r);
+   glVertex2f(-2*r/sqrt(3), 0);
+   glvertex2f(-r/sqrt(3), r);
+   glVertex2f(r/sqrt(3), r);
 end;
 
 
 //Scrolling  колесиком мышки вниз
 procedure TFormGeomedit.OpenGLControl1MouseWheelDown(Sender: TObject;
-
   Shift: TShiftState; MousePos: TPoint; var Handled: Boolean);
+var
+CurNum: Integer;
+//для нахождения самого большоего элемента
+        i:byte;
+        max_r:extended;
+        temp: real;
+        max_index:byte;
 begin
      glClearColor(1, 1, 1, 1.0);
      glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT);
-     begin
-          if (scx>0.11) and (scy>0.11) then
-          begin
-          scx:=scx-0.1;
-          scy:=scy-0.1
-          end;
-     end;
+            begin
+                 if (scx>0.11) and (scy>0.11) then
+                 begin
+                      scx:=scx-0.1;
+                      scy:=scy-0.1
+                 end;
+            end;
      glLoadIdentity;
      glscalef(scx,scy,0);
-     circlepaint;
-     quadpaint;
-     OpenGLControl1.SwapBuffers;
-     glEnd;
+                          //для 'вписывания' объекта в экран opengl
+        max_r:=0;
+        max_index:=0;
+         for i:=0 to current_geometry.numsurf-1 do
+           begin
+                temp:=current_geometry.faces[i].Dimension[0];
+                case current_geometry.faces[i].Name of
+                    'Hexagonal': temp:=temp*2/sqrt(3);
+                end;
+
+                if temp > max_r then
+
+                   begin
+                      max_index:=i;
+
+                      max_r:=temp;
+
+                   end;
+           end;
+             for CurNum:=0 to current_geometry.numsurf-1 do
+             begin
+                  //Name -узнаем что за фигура
+                  if current_geometry.faces[CurNum].Name = 'Circle' then
+                  circlepaint(CurNum,max_r); //для кругa
+
+                  if current_geometry.faces[CurNum].Name = 'Square' then
+                  quadpaint(CurNum,max_r); //для квадрата
+
+                  if current_geometry.faces[CurNum].Name = 'Hexagonal' then
+                  sixpaint(CurNum,max_r); //шестиугольник
+                  end;
+      glEnd;
+      OpenGLControl1.SwapBuffers;
 end;
+
 
 //Scrolling  колесиком мышки верх
 procedure TFormGeomedit.OpenGLControl1MouseWheelUp(Sender: TObject;
   Shift: TShiftState; MousePos: TPoint; var Handled: Boolean);
+var
+CurNum: Integer;
+//для нахождения самого большоего элемента
+        i:byte;
+        max_r:extended;
+        temp: real;
+        max_index:byte;
 begin
      glClearColor(1, 1, 1, 1.0);
      glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT);
-    begin
-         if (scx<1) and (scy<1) then
-         begin
-         scx:=scx+0.1;
-         scy:=scy+0.1
-         end;
-    end;
+             begin
+                  if (scx<1) and (scy<1) then
+                     begin
+                     scx:=scx+0.1;
+                     scy:=scy+0.1
+                     end;
+             end;
     glLoadIdentity;
     glscalef(scx,scy,0);
-    quadpaint;
-    circlepaint;
-    OpenGLControl1.SwapBuffers;
+                    //для 'вписывания' объекта в экран opengl
+        max_r:=0;
+        max_index:=0;
+         for i:=0 to current_geometry.numsurf-1 do
+           begin
+                temp:=current_geometry.faces[i].Dimension[0];
+                case current_geometry.faces[i].Name of
+                    'Hexagonal': temp:=temp*2/sqrt(3);
+                end;
+
+                if temp > max_r then
+
+                   begin
+                      max_index:=i;
+
+                      max_r:=temp;
+
+                   end;
+           end;
+                  //
+             for CurNum:=0 to current_geometry.numsurf-1 do
+               begin
+                 //Name -узнаем что за фигура
+                 if current_geometry.faces[CurNum].Name = 'Circle' then
+                 circlepaint(CurNum,max_r); //для кругa
+
+                 if current_geometry.faces[CurNum].Name = 'Square' then
+                 quadpaint(CurNum,max_r); //для квадрата
+
+                 if current_geometry.faces[CurNum].Name = 'Hexagonal' then
+                 sixpaint(CurNum,max_r); //шестиугольник
+               end;
     glEnd;
+    OpenGLControl1.SwapBuffers;
 end;
 
 

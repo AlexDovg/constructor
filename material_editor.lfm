@@ -1,11 +1,11 @@
 object FormMatedit: TFormMatedit
-  Left = 565
+  Left = 829
   Height = 583
-  Top = 132
-  Width = 815
+  Top = 145
+  Width = 787
   Caption = 'Editing material'
   ClientHeight = 583
-  ClientWidth = 815
+  ClientWidth = 787
   Color = clWhite
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -101,10 +101,10 @@ object FormMatedit: TFormMatedit
     Left = 168
     Height = 583
     Top = 0
-    Width = 318
+    Width = 290
     Align = alClient
     ClientHeight = 583
-    ClientWidth = 318
+    ClientWidth = 290
     PopupMenu = PopupMenu1
     TabOrder = 1
     object Label1: TLabel
@@ -438,7 +438,7 @@ object FormMatedit: TFormMatedit
     MinSize = 35
   end
   object Panelbd: TPanel
-    Left = 490
+    Left = 462
     Height = 583
     Top = 0
     Width = 325
@@ -572,7 +572,7 @@ object FormMatedit: TFormMatedit
     end
   end
   object Splitter2: TSplitter
-    Left = 486
+    Left = 458
     Height = 583
     Top = 0
     Width = 4
@@ -880,13 +880,10 @@ object FormMatedit: TFormMatedit
     AllowAutoActivateTransaction = True
     Database = DM.rDatabase
     Transaction = TransactionNucl
-    Active = True
     BufferChunks = 1000
     CachedUpdates = False
-    EnableStatistics = False
     GenerateParamNames = False
     GeneratorField.ApplyOnEvent = gaeOnNewRecord
-    MasterDetailDelay = 0
     SQL.Strings = (
       'Select A.ID, A.MASS, A.NAME, A.DESCRIPTION From NUCLID A'
     )

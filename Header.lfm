@@ -1,14 +1,13 @@
 object FormHeader: TFormHeader
-  Left = 354
+  Left = 824
   Height = 670
-  Top = 571
+  Top = 68
   Width = 1015
   AlphaBlend = True
   Caption = 'Core Constructor'
-  ClientHeight = 645
+  ClientHeight = 650
   ClientWidth = 1015
   Color = clBtnFace
-  DesignTimePPI = 120
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
@@ -21,7 +20,7 @@ object FormHeader: TFormHeader
   Visible = True
   object PageControl1: TPageControl
     Left = 0
-    Height = 645
+    Height = 650
     Top = 0
     Width = 1015
     ActivePage = TabSheet4
@@ -37,7 +36,7 @@ object FormHeader: TFormHeader
     OnChange = PageControl1Change
     object TabSheet1: TTabSheet
       Caption = 'Log'
-      ClientHeight = 637
+      ClientHeight = 642
       ClientWidth = 985
       Font.Color = clWindowText
       Font.Height = -20
@@ -45,7 +44,7 @@ object FormHeader: TFormHeader
       ParentFont = False
       object Memo1: TMemo
         Left = 0
-        Height = 637
+        Height = 642
         Top = 0
         Width = 985
         Align = alClient
@@ -178,21 +177,21 @@ object FormHeader: TFormHeader
     end
     object TabSheet4: TTabSheet
       Caption = 'Tables'
-      ClientHeight = 637
+      ClientHeight = 642
       ClientWidth = 985
       object PageControl2: TPageControl
         Left = 0
-        Height = 637
+        Height = 642
         Top = 0
         Width = 985
-        ActivePage = TabSheet5
+        ActivePage = TabSheet6
         Align = alClient
-        TabIndex = 0
+        TabIndex = 1
         TabOrder = 0
         OnChange = PageControl2Change
         object TabSheet5: TTabSheet
           Caption = 'Materials'
-          ClientHeight = 608
+          ClientHeight = 613
           ClientWidth = 977
           object ToolBar1: TToolBar
             Left = 0
@@ -233,7 +232,7 @@ object FormHeader: TFormHeader
           end
           object Gridmat: TIBDynamicGrid
             Left = 0
-            Height = 582
+            Height = 587
             Top = 26
             Width = 977
             Align = alClient
@@ -285,7 +284,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'MASSA'
-                Width = 64
+                Width = 80
                 FieldName = 'MASSA'
                 DisplayFormat = '###.##'
                 AutoSizeColumn = False
@@ -296,7 +295,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'DATETIME'
-                Width = 64
+                Width = 80
                 FieldName = 'DATETIME'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -306,7 +305,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'USERNAME'
-                Width = 64
+                Width = 80
                 FieldName = 'USERNAME'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -330,7 +329,7 @@ object FormHeader: TFormHeader
         end
         object TabSheet6: TTabSheet
           Caption = 'Geometry'
-          ClientHeight = 608
+          ClientHeight = 613
           ClientWidth = 977
           object Panel1: TPanel
             Left = 0
@@ -382,7 +381,7 @@ object FormHeader: TFormHeader
           end
           object IBDynamicGrid1: TIBDynamicGrid
             Left = 0
-            Height = 576
+            Height = 581
             Top = 32
             Width = 977
             Align = alClient
@@ -390,7 +389,7 @@ object FormHeader: TFormHeader
             Columns = <            
               item
                 Title.Caption = 'NAME'
-                Width = 64
+                Width = 80
                 FieldName = 'NAME'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -400,7 +399,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'DESCRIPTION'
-                Width = 64
+                Width = 80
                 FieldName = 'DESCRIPTION'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -410,7 +409,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'DATETIME'
-                Width = 64
+                Width = 80
                 FieldName = 'DATETIME'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -420,7 +419,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'USERNAME'
-                Width = 64
+                Width = 80
                 FieldName = 'USERNAME'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -430,7 +429,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'AREA'
-                Width = 64
+                Width = 80
                 FieldName = 'AREA'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -537,7 +536,7 @@ object FormHeader: TFormHeader
             Columns = <            
               item
                 Title.Caption = 'NAME'
-                Width = 64
+                Width = 80
                 FieldName = 'NAME'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -547,7 +546,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'DESCRIPTION'
-                Width = 64
+                Width = 80
                 FieldName = 'DESCRIPTION'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -557,7 +556,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'USERNAME'
-                Width = 64
+                Width = 80
                 FieldName = 'USERNAME'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -567,7 +566,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'DATETIME'
-                Width = 64
+                Width = 80
                 FieldName = 'DATETIME'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -577,7 +576,7 @@ object FormHeader: TFormHeader
               end            
               item
                 Title.Caption = 'ETYPE'
-                Width = 64
+                Width = 80
                 FieldName = 'ETYPE'
                 AutoSizeColumn = False
                 InitialSortColumn = False
@@ -806,10 +805,8 @@ object FormHeader: TFormHeader
     Transaction = TransactionMat
     BufferChunks = 1000
     CachedUpdates = False
-    EnableStatistics = False
     GenerateParamNames = False
     GeneratorField.ApplyOnEvent = gaeOnNewRecord
-    MasterDetailDelay = 0
     SQL.Strings = (
       'Select A.ID, A.DENSITY, A.DESCRIPTION, A.TEMPERATURE, A.MASSA, '
       'A.NAME, A.DATETIME, A.USERNAME From MATERIAL A'
@@ -943,10 +940,8 @@ object FormHeader: TFormHeader
     Transaction = TransactionMat
     BufferChunks = 1000
     CachedUpdates = False
-    EnableStatistics = False
     GenerateParamNames = False
     GeneratorField.ApplyOnEvent = gaeOnNewRecord
-    MasterDetailDelay = 0
     SQL.Strings = (
       'Select A.ID, A.NAME, A.DESCRIPTION, A.AREA, A.DATETIME, A.USERNAME '
       'From GEOMETRY A'
@@ -1055,10 +1050,8 @@ object FormHeader: TFormHeader
     Transaction = TransactionElmnt
     BufferChunks = 1000
     CachedUpdates = False
-    EnableStatistics = False
     GenerateParamNames = False
     GeneratorField.ApplyOnEvent = gaeOnNewRecord
-    MasterDetailDelay = 0
     SQL.Strings = (
       'Select A.ID, A.NAME, A.DESCRIPTION, A.USERNAME, A.DATETIME, '
       'A.NUMBERCOMPOSITION, A.ETYPE From ELEMENT A WHERE '

@@ -346,8 +346,10 @@ var
       end;
 
       end;
-      Query.Free();
-      Trans.Free();
+     // Query.Free();
+     // Query.Destroy;
+     // Trans.Free();
+     // Trans.Destroy;
  end;
   //
 
